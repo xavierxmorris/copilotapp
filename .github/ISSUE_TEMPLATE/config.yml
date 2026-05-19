@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: GitHub Copilot app documentation
+    url: https://gh.io/github-app-docs
+    about: Read setup guidance and troubleshooting information before opening an issue.
+  - name: GitHub Copilot app discussions
+    url: https://github.com/xavierxmorris/copilotapp/discussions
+    about: Ask open-ended questions or share workflow feedback that is not a bug report or feature request.
+  - name: GitHub Support
+    url: https://support.github.com/
+    about: Contact support for account, billing, security-sensitive, or private-information requests.

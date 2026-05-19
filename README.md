@@ -44,20 +44,24 @@ For setup and a walkthrough of your first session, see the [documentation](https
 This repo is the public home for the GitHub Copilot app. Use it to:
 
 - Download releases from the [Releases](../../releases) page
-- File bugs and feature requests
-- Join discussions
+- File bugs and feature requests with the [issue forms](../../issues/new/choose)
+- Join [Discussions](../../discussions)
 - Read release notes in [`changelog.md`](./changelog.md)
 
-The application source lives elsewhere; this repo is for releases, issues, and discussion.
+The application source lives elsewhere; this repo is for releases, issues, discussions, and feedback.
 
 
 ## Feedback and issues
 
-Use the issue forms in this repository to report a bug or propose an improvement, join [Discussions](https://github.com/github/app/discussions/3), or send feedback from within the app. When filing an issue, please include:
+Use the [issue forms](../../issues/new/choose) in this repository to report a bug or propose an improvement. For open-ended questions, workflow feedback, or community conversation, use [Discussions](../../discussions). You can also send feedback from within the app; feedback submissions are posted as public GitHub issues.
+
+When filing an issue, please include:
 
 - The app version
 - Your operating system and version
 - Steps to reproduce
 - Expected vs. actual behavior
 - Screenshots or logs
+
+Do not include access tokens, credentials, private keys, or sensitive private logs in public issues or discussions. If your report requires private information, contact [GitHub Support](https://support.github.com/).
 
