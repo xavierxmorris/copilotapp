@@ -3,11 +3,14 @@ description: Suggest an improvement for the GitHub App.
 type: Feature
 labels:
   - triage
+  - enhancement
 body:
   - type: markdown
     attributes:
       value: |
         Thank you for sharing an idea. Please describe the workflow and the problem you want the GitHub App to solve.
+
+        Do not include access tokens, credentials, private keys, or sensitive private logs in public issues. If your request requires private information, contact GitHub Support instead.
   - type: input
     id: title
     attributes:

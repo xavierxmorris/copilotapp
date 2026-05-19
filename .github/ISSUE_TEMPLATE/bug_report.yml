@@ -3,11 +3,14 @@ description: Report a bug or unexpected behavior in the GitHub App.
 type: Bug
 labels:
   - triage
+  - bug
 body:
   - type: markdown
     attributes:
       value: |
         Thank you for reporting a bug. Please share as much detail as you can so the team can triage it quickly.
+
+        Do not include access tokens, credentials, private keys, or sensitive private logs in public issues. If your report requires private information, contact GitHub Support instead.
   - type: input
     id: title
     attributes:
