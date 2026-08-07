@@ -65,3 +65,6 @@ When filing an issue, please include:
 
 Do not include access tokens, credentials, private keys, or sensitive private logs in public issues or discussions. If your report requires private information, contact [GitHub Support](https://support.github.com/).
 
+## Examples
+
+- [Containerized MCP Streamable HTTP server](examples/containerized-mcp/README.md) - a minimal JSON-only TypeScript server for connecting a loopback-published Docker or Podman container to GitHub Copilot CLI and the Copilot desktop app. Follow the [step-by-step demo](examples/containerized-mcp/DEMO.md).
