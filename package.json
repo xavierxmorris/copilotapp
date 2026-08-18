@@ -1,0 +1,7 @@
+{
+  "name": "copilotapp-public",
+  "private": true,
+  "scripts": {
+    "test:worktree-demo": "node --test tests/worktree-management-demo.test.cjs"
+  }
+}

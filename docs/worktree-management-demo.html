@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (() => {
+        const param = new URLSearchParams(window.location.search).get("scoutTheme");
+        const theme =
+          param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <title>Worktrees · GitHub Copilot</title>
+    <link rel="stylesheet" href="./worktree-management-demo.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.9c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 0 1.6 1.1 1.6 1.1.9 1.6 2.4 1.1 2.9.9.1-.7.4-1.1.7-1.4-2.3-.3-4.7-1.1-4.7-5a4 4 0 0 1 1-2.7c-.1-.3-.4-1.3.1-2.7 0 0 .9-.3 2.8 1a9.7 9.7 0 0 1 5.1 0c2-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7a4 4 0 0 1 1.1 2.7c0 3.9-2.4 4.7-4.7 5 .4.3.7 1 .7 1.9v2.7c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5Z" />
+          </svg>
+          <span>Copilot</span>
+        </div>
+
+        <nav class="nav-list">
+          <a href="#home">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3.5 10 8.5-7 8.5 7v10.5h-6v-6h-5v6h-6Z" /></svg>
+            Home
+          </a>
+          <a href="#my-work">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v13H4Z M8 3v5M16 3v5M4 9.5h16" /></svg>
+            My work
+            <span class="nav-count">8</span>
+          </a>
+          <a href="#pull-requests">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4v13M18 7v13M6 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM18 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM9 5h4a5 5 0 0 1 5 5v4" /></svg>
+            Pull requests
+          </a>
+          <a class="active" href="#worktrees" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v13M17 7v10M7 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM17 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM9 5h3a5 5 0 0 1 5 5" /></svg>
+            Worktrees
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="account-button" type="button">
+            <span class="avatar" aria-hidden="true">XM</span>
+            <span>
+              <strong>xavierxmorris</strong>
+              <small>Personal account</small>
+            </span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+          </button>
+        </div>
+      </aside>
+
+      <main id="main-content" tabindex="-1">
+        <div class="simulation-strip" role="status">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 4.5 7v5c0 4.8 3.2 7.8 7.5 9 4.3-1.2 7.5-4.2 7.5-9V7Z M9 12l2 2 4-4" /></svg>
+          <strong>Interactive prototype</strong>
+          <span>Every action is simulated. No repositories, branches, or files will change.</span>
+        </div>
+
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Local workspaces</p>
+            <h1>Worktrees</h1>
+            <p class="header-copy">Review the isolated workspaces created for your project sessions.</p>
+          </div>
+          <button class="primary-button" id="create-worktree" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+            New worktree
+          </button>
+        </header>
+
+        <section class="workspace-panel" aria-labelledby="worktree-list-title">
+          <div class="toolbar">
+            <div class="search-field">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 20-4.6-4.6M18 11a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" /></svg>
+              <label class="sr-only" for="worktree-search">Search worktrees</label>
+              <input id="worktree-search" type="search" placeholder="Search sessions, branches, or paths" autocomplete="off" />
+              <kbd>⌘ K</kbd>
+            </div>
+            <div class="toolbar-field">
+              <label for="status-filter">Status</label>
+              <select id="status-filter">
+                <option value="all">All statuses</option>
+                <option value="active">Active</option>
+                <option value="idle">Idle</option>
+                <option value="changes">Has changes</option>
+                <option value="archived">Archived</option>
+              </select>
+            </div>
+            <div class="toolbar-field preview-field">
+              <label for="preview-state">Preview</label>
+              <select id="preview-state">
+                <option value="ready">Ready</option>
+                <option value="loading">Loading</option>
+                <option value="error">Error</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="workspace-layout">
+            <section class="worktree-column" aria-labelledby="worktree-list-title">
+              <div class="list-heading">
+                <h2 id="worktree-list-title">Project sessions</h2>
+                <span id="result-count">0 worktrees</span>
+              </div>
+              <div id="worktree-list" class="worktree-list" role="listbox" aria-label="Worktrees"></div>
+              <div id="list-state" class="state-container" hidden></div>
+            </section>
+
+            <aside id="detail-panel" class="detail-panel" aria-label="Selected worktree details"></aside>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="create-dialog" aria-labelledby="create-title">
+      <form id="create-form">
+        <div class="dialog-header">
+          <div>
+            <p class="eyebrow">Simulated action</p>
+            <h2 id="create-title">Create a worktree</h2>
+          </div>
+          <button class="icon-button close-dialog" type="button" aria-label="Close create dialog">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+          </button>
+        </div>
+        <p class="dialog-copy">Start an isolated project session from a branch. This prototype will only add a temporary item to the list.</p>
+        <div class="form-grid">
+          <label>
+            Project
+            <select id="create-project" name="project">
+              <option value="xavierxmorris/copilotapp">xavierxmorris/copilotapp</option>
+              <option value="github/design-system">github/design-system</option>
+            </select>
+          </label>
+          <label>
+            Session name
+            <input id="create-name" name="name" required maxlength="48" placeholder="e.g. Improve settings search" />
+          </label>
+          <label>
+            Base branch
+            <select id="create-base" name="base">
+              <option value="main">main</option>
+              <option value="releases/v0.3">releases/v0.3</option>
+            </select>
+          </label>
+          <label>
+            Workspace type
+            <select id="create-type" name="type">
+              <option value="worktree">Worktree (isolated)</option>
+              <option value="branch">Branch (in place)</option>
+            </select>
+          </label>
+        </div>
+        <div class="dialog-note">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5M12 17h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+          No directory or Git branch will be created.
+        </div>
+        <div class="dialog-actions">
+          <button class="secondary-button close-dialog" type="button">Cancel</button>
+          <button class="primary-button" type="submit">Create simulated worktree</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="archive-dialog" aria-labelledby="archive-title">
+      <form id="archive-form">
+        <div class="dialog-header">
+          <div>
+            <p class="eyebrow">Confirmation</p>
+            <h2 id="archive-title">Archive this worktree?</h2>
+          </div>
+          <button class="icon-button close-archive-dialog" type="button" aria-label="Close archive dialog">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+          </button>
+        </div>
+        <p class="dialog-copy" id="archive-copy"></p>
+        <div class="dialog-note danger-note">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.3 4.9 2.8 18a2 2 0 0 0 1.7 3h15a2 2 0 0 0 1.7-3L13.7 4.9a2 2 0 0 0-3.4 0Z" /></svg>
+          Simulation only — the local directory and branch will remain untouched.
+        </div>
+        <div class="dialog-actions">
+          <button class="secondary-button close-archive-dialog" type="button">Cancel</button>
+          <button class="danger-button" type="submit">Archive simulated worktree</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+    <script src="./worktree-management-demo.js"></script>
+  </body>
+</html>

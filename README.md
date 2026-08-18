@@ -48,6 +48,10 @@ This repo is the public home for the GitHub Copilot app. Use it to:
 - Join [Discussions](../../discussions)
 - Read release notes in [`changelog.md`](./changelog.md)
 
+### Interactive prototypes
+
+- [Worktree management demo](./docs/worktree-management-demo.html) — explore simulated project sessions, filters, details, and lifecycle actions without changing a repository.
+
 The application source lives elsewhere; this repo is for releases, issues, discussions, and feedback.
 
 
@@ -64,4 +68,3 @@ When filing an issue, please include:
 - Screenshots or logs
 
 Do not include access tokens, credentials, private keys, or sensitive private logs in public issues or discussions. If your report requires private information, contact [GitHub Support](https://support.github.com/).
-
