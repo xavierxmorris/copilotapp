@@ -50,7 +50,7 @@ This repo is the public home for the GitHub Copilot app. Use it to:
 
 ### Interactive prototypes
 
-- [Worktree management demo](./docs/worktree-management-demo.html) — explore simulated project sessions, filters, details, and lifecycle actions without changing a repository.
+- [Worktree management demo](https://xavierxmorris.github.io/copilotapp/worktree-management-demo.html) — explore simulated project sessions, filters, details, and lifecycle actions without changing a repository.
 
 The application source lives elsewhere; this repo is for releases, issues, discussions, and feedback.
 
