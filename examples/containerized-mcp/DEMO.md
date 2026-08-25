@@ -164,7 +164,7 @@ copilot mcp get containerized-mcp-example
 Then launch `copilot` and invoke the same two tools, or run:
 
 ```shell
-copilot -p "Call containerized-mcp-example server_info, then echo with exactly cli-client-ok." --allow-all-tools
+copilot -p "Call containerized-mcp-example server_info, then echo with exactly cli-client-ok." --allow-tool='containerized-mcp-example'
 ```
 
 ## 8. Stop the demo
