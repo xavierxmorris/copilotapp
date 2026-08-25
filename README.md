@@ -50,6 +50,9 @@ This repo is the public home for the GitHub Copilot app. Use it to:
 
 The application source lives elsewhere; this repo is for releases, issues, discussions, and feedback.
 
+## Examples
+
+- [Connect Copilot to a containerized Streamable HTTP MCP server](./examples/containerized-streamable-http/)
 
 ## Feedback and issues
 
@@ -64,4 +67,3 @@ When filing an issue, please include:
 - Screenshots or logs
 
 Do not include access tokens, credentials, private keys, or sensitive private logs in public issues or discussions. If your report requires private information, contact [GitHub Support](https://support.github.com/).
-
